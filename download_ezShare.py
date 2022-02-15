@@ -98,13 +98,13 @@ def download_all(sd_url, out_folder, last_folder=False, overwrite=False):
     # The last folder contains data of the current day that is still measurring
     # It's better not to download it
     if(last_folder):
-        folder_list = list_folders(url)
+        folder_list = list_folders(sd_url)
     else:
-        folder_list = list_folders(url)[:-1]
+        folder_list = list_folders(sd_url)[:-1]
     # Now cycle through the folders, and check if the files exist
     for folder in folder_list:
         print('  ' + folder)
-        file_list = list_files(url, folder)
+        file_list = list_files(sd_url, folder)
         for file in file_list:
             print('    ' + file + ': ', end='')
             check_download(out_folder, folder, file, overwrite=overwrite)
